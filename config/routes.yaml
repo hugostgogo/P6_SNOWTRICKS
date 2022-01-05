@@ -3,3 +3,15 @@ blog_list:
     controller: App\Controller\BlogController::list
     defaults:
         template:  'layout/all.html.twig'
+
+login:
+    path: /login
+    controller: App\Controller\AuthController::showLogin
+    defaults:
+        template:  'auth/login.html.twig'
+
+register:
+    path: /register
+    controller: App\Controller\AuthController::showRegister
+    defaults:
+        template:  'auth/register.html.twig'
