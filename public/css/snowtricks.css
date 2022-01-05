@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+}
+
+.nav {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222222;
+    padding: 0rem 1rem;
+}
+
+.navLogo {
+    max-height: 75px;
+}
+
+.navButton {
+    background: #000000;
+    color: white;
+    border: none;
+    padding: .75rem 1rem;
+    border-radius: .25rem;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.navButtonContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.headingHome {
+    height: calc(100vh - 4rem);
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a1/Swiss_Landscape_%2823929500196%29.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headingHome>span {
+    color: white;
+    font-size: 2rem;
+}
+
+.contentHome {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.homeTricksWrapper {
+    flex-grow: 1;
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.trickCard {
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.trickCardImage {
+    flex-grow: 1;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Picswiss_VD-44-23.jpg/220px-Picswiss_VD-44-23.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.trickCardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .2rem .5rem 0 .5rem;
+}
+
+.homeFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem;
+    border-top: 1px black solid;
+}
