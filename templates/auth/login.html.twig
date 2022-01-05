@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="authLayout">
+        <h3>LOGIN</h3>
+        <form class="loginForm" method="POST">
+            <input class="customInput" type="email" placeholder="E-mail" required>
+            <input class="customInput" type="password" placeholder="Password" required>
+            <span>Forgot Password ?</span>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+{% endblock %}
