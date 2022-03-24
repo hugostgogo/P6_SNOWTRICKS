@@ -5,8 +5,18 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-// any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+// MD ICONS
+import 'material-icons/iconfont/material-icons.scss';
+import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
+
+// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+    localStorage.theme = 'dark'
+} else {
+    document.documentElement.classList.remove('dark')
+    localStorage.theme = 'light'
+}

@@ -1,0 +1,8 @@
+<div class="userDisplay">
+	{% set user = app.user %}
+	{% include 'app/user/avatar.html.twig' %}
+	<div class="userDetails">
+		<span class="username">{{ app.user.username }}</span>
+		<span class="email">{{ app.user.email }}</span>
+	</div>
+</div>

@@ -1,0 +1,92 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./fonts/fonts.scss";
+
+@import "./tricks.scss";
+@import "./auth.scss";
+
+.appBar {
+  @apply flex
+    justify-between
+    items-center
+    w-full
+    h-14
+    px-4
+    py-2
+    fixed
+    bottom-0
+    md:static;
+
+  .appBarLeft {
+    @apply flex items-center h-full cursor-pointer;
+    .appLogo {
+      @apply text-2xl;
+      font-family: "Mortina";
+    }
+
+    .skiLogo {
+      @apply aspect-square h-full bg-contain;
+    }
+  }
+
+  color: theme("colors.textInverted");
+  background-color: theme("colors.primary");
+
+  .appBarRight {
+    @apply flex
+      gap-3
+      items-center;
+
+    .btn {
+      @apply px-4 h-9 rounded-md text-primary bg-textInverted;
+    }
+
+    .logoutButton {
+      @apply flex items-center gap-2;
+    }
+  }
+}
+
+.landscapeHome {
+  @apply bg-no-repeat
+    bg-center
+    bg-cover
+    flex
+    items-center
+    justify-center
+    text-white;
+
+  height: calc(theme("height.screen") - theme("height.14"));
+  font-family: "Hartone";
+  font-size: 5em;
+  text-shadow: 0 0 5rem theme("colors.slate.600");
+}
+
+.cancelBtn {
+  @apply p-2 px-4 text-secondary;
+}
+
+.homePage {
+}
+
+.userDisplay {
+  @apply flex gap-2 items-center p-1 pr-4 rounded-md;
+
+  .avatar {
+    @apply aspect-square rounded-full w-10 bg-cover bg-no-repeat bg-center;
+  }
+
+  .userDetails {
+    @apply flex flex-col text-white;
+
+    .username {
+      @apply -mb-1;
+    }
+
+    .email {
+      @apply text-xs;
+    }
+  }
+}

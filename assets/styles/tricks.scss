@@ -1,0 +1,199 @@
+.tricksWrapper {
+  @apply grid
+    grid-cols-1
+    sm:grid-cols-2
+    md:grid-cols-3
+    lg:grid-cols-4
+    xl:grid-cols-5
+    p-4
+    grid-flow-row
+    gap-4
+    flex-grow;
+
+  .trickCard {
+    @apply shadow-md
+        flex
+        flex-col
+        rounded-md
+        transition-all
+        duration-500
+        ease-in-out;
+
+    .trickCover {
+      @apply flex-grow
+        bg-cover
+        bg-center
+        flex
+        rounded-t-md;
+
+      .actionsButtons {
+        @apply flex
+            justify-center
+            items-center
+            w-full
+            gap-4
+            bg-slate-600
+            bg-opacity-0
+            transition-all
+            duration-500
+            ease-in-out
+            rounded-t-md;
+
+        .btn {
+          @apply text-textInverted
+            opacity-0
+            transition-all
+            duration-500
+            ease-in-out;
+        }
+      }
+    }
+
+    &:hover {
+      @apply cursor-pointer shadow-xl;
+
+      .actionsButtons {
+        @apply bg-opacity-30;
+
+        .btn {
+          @apply opacity-100;
+        }
+      }
+    }
+
+    .trickCardDetails {
+      @apply p-2;
+    }
+  }
+}
+
+.wrapperPage {
+  @apply flex flex-col;
+  min-height: calc(theme('height.screen') - theme('height.14'));
+
+  .tricksWrapper {
+    min-height: calc(theme('height.screen') - theme('height.28'));
+  }
+
+  .wrapperFooter {
+    @apply flex justify-center h-14;
+  }
+
+  .addTrickButton {
+    @apply absolute bottom-2 right-2 bg-primary text-textInverted rounded-full aspect-square flex items-center justify-center
+    p-3 shadow-md;
+  }
+}
+
+.trickSinglePage {
+  @apply flex items-center justify-center py-8;
+  min-height: calc(theme('height.screen') - theme('height.14')) ;
+  .trickSingle {
+    @apply w-5/6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2
+    border-2 border-primary
+    rounded-md
+    ;
+
+    .cover {
+      @apply aspect-video bg-no-repeat bg-cover bg-center rounded-t-md
+      p-2
+      flex items-center justify-center
+      relative;
+      min-height: calc(theme('height.screen') * .3);
+
+      
+
+      .trickName {
+        @apply text-white text-6xl;
+        font-family: 'Mortina';
+      }
+
+      .backBtn {
+        @apply bg-opacity-30 bg-textInverted rounded-full text-textInverted
+        flex items-center justify-center
+        w-10 aspect-square
+        absolute top-2 left-2;
+      }
+
+      .actions{
+        @apply text-white flex items-center gap-2
+        absolute top-2 right-2;
+
+        button {
+          @apply aspect-square flex items-center justify-center rounded-full p-2 text-white;
+
+        }
+
+        .deleteButton {
+          @apply bg-error;
+        }
+
+        .editButton {
+          @apply bg-warning;
+        }
+        
+      }
+    }
+
+    .content {
+      @apply p-4;
+
+      .photosWrapper {
+        @apply snap-x flex items-center gap-2 w-full overflow-x-auto p-2 border-2 border-primary mt-2;
+        aspect-ratio: 8/1;
+        
+        .trickPhoto {
+          @apply snap-normal snap-start aspect-video bg-contain bg-primary bg-no-repeat bg-center h-full rounded-sm;
+        }
+      }
+
+      .tagsWrapper {
+        @apply flex justify-center gap-1 items-center p-2;
+        .trickTag {
+          @apply p-1 px-4 rounded-full flex items-center justify-center text-textInverted bg-primary;
+          min-width: 4rem;
+        }
+      }
+
+      form[name="comment"] {
+        @apply flex gap-2;
+        button {
+          @apply bg-primary rounded-md px-14 text-textInverted;
+        }
+
+        textarea {
+          @apply resize-none h-20 p-1 border-2 overflow-y-auto border-primary rounded-md flex-grow caret-primary;
+        }
+      }
+
+      .commentsWrapper {
+        @apply flex flex-col gap-2 pt-3;
+
+        .commentCard {
+          @apply flex flex-col p-2 px-4 border-2 border-primary rounded-md;
+          .user {
+            @apply flex gap-1 items-center;
+            .avatar {
+              @apply h-10 aspect-square bg-no-repeat bg-cover rounded-full;
+            }
+          }
+
+          .commentContent {
+            @apply py-1 pl-2;
+          }
+
+          .commentCreated {
+            @apply self-end text-secondary;
+          }
+        }
+
+        .loadMoreButton {
+          @apply bg-primary self-center p-2 px-4 rounded-md text-white -mb-2;
+        }
+      }
+
+
+
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SNOWTRICKS{% endblock %}
+
+{% block body %}
+	<div style="background-image: url('{{ asset('images/landscape.jpg') }}')" class="landscapeHome">
+		Texte pour meubler pour l'instant
+	</div>
+	{% set home = true %}
+	{% include "tricks/wrapper/tricksWrapper.html.twig" %}
+{% endblock %}

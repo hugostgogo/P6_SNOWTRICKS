@@ -1,0 +1,13 @@
+<div class="appBarRight">
+    <button class="btn tricksBtn" {{ stimulus_action('app', 'changeRoute', 'click') }} data-app-route-param='/'>
+        Home
+    </button>
+    <button class="btn tricksBtn" {{ stimulus_action('app', 'changeRoute', 'click') }} data-app-route-param='/tricks'>
+        Tricks
+    </button>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% include "app/layout/appBar/right/authenticated.html.twig" %}
+    {% else %}
+        {% include "app/layout/appBar/right/unauthenticated.html.twig" %}
+    {% endif %}
+</div>

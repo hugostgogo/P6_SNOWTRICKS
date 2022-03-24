@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	{% for flash_error in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+
+	<div class="authPage" style="background-image: url('{{ asset('images/authBackground.jpg') }}')">
+		<form method="post" class="loginForm">
+			<div class="formTitle">Register</div>
+			<input type="email" name="email" id="inputEmail" autocomplete="email" placeholder="E-mail" required autofocus>
+			<input type="text" name="username" id="inputUsername" autocomplete="username" placeholder="Username" required autofocus>
+			<input type="password" name="plainPassword" id="inputPassword" placeholder="Password" autocomplete="current-password" required>
+            <div class="flex items-center gap-2">
+                <input type="checkbox" name="agreeTerms" id="inputAgreeTerms" required>
+                <label for="inputAgreeTerms">Agree terms</label>
+            </div>
+
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+			<div class="formFooter">
+				<div class="helpText">
+					Already an account ?
+					<span class="material-icons">arrow_right</span>
+				</div>
+
+				<button class="btn cancelBtn" type="button" data-action="click->app#changeRoute" data-app-route-param="{{ path('login') }}">
+					Log In
+				</button>
+
+				<button type="submit" class="btn loginBtn">
+					Register
+				</button>
+			</div>
+		</form>
+	</div>
+{% endblock %}

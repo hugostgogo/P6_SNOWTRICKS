@@ -1,0 +1,76 @@
+.authPage {
+  @apply flex items-center justify-center bg-cover bg-no-repeat;
+  height: calc(theme("height.screen") - theme("height.14"));
+
+  #inputAgreeTerms {
+    @apply text-primary;
+  }
+
+  .loginForm {
+    @apply flex flex-col p-6 shadow-xl rounded-md gap-4 caret-primary bg-textInverted;
+    width: calc(theme("width.screen") - theme("screens.xl"));
+
+    .formTitle {
+      @apply font-bold text-3xl flex items-center flex-grow;
+    }
+
+    input {
+      @apply rounded-md;
+
+      &:focus {
+        @apply ring-2 ring-primary;
+      }
+    }
+
+    .forgotPassword {
+      @apply text-primary;
+    }
+
+    .formFooter {
+      @apply flex gap-3 items-center self-end;
+
+      .helpText {
+        @apply flex-grow flex justify-end items-center;
+      }
+
+      .btn {
+        @apply bg-textInverted shadow-md rounded-md p-2 px-4;
+      }
+
+      .loginBtn {
+        @apply bg-primary text-textInverted;
+      }
+    }
+  }
+
+  .alreadyLogged {
+    @apply flex items-stretch gap-4;
+
+    .avatarImage {
+      @apply w-64 h-64 bg-center bg-no-repeat bg-cover rounded-full shadow-lg;
+    }
+
+    .wrapper {
+      @apply flex flex-col justify-center gap-3;
+
+      .caption {
+        @apply text-sm text-slate-400;
+      }
+
+      .username {
+        @apply text-3xl;
+      }
+
+      .email {
+        @apply text-lg text-slate-500;
+      }
+
+      .buttons {
+          @apply flex justify-end items-center gap-2;
+        .logoutBtn {
+          @apply bg-red-500 text-white shadow-md rounded-md p-2 px-4 self-end;
+        }
+      }
+    }
+  }
+}

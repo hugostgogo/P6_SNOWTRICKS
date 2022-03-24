@@ -13,6 +13,7 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
+    .enableSassLoader()
 
     /*
      * ENTRY CONFIG
@@ -55,8 +56,12 @@ Encore
         config.corejs = 3;
     })
 
-    // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enablePostCssLoader((options) => {
+        options.postcssOptions = {
+            config: './postcss.config.js'
+        }
+    })
+
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
@@ -70,6 +75,11 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-;
+    ;
 
-module.exports = Encore.getWebpackConfig();
+const config = Encore.getWebpackConfig();
+config.watchOptions = {
+    poll: true,
+};
+
+module.exports = config;

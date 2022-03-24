@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+	<div class="authPage" style="background-image: url('{{ asset('images/authBackground.jpg') }}')">
+
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+
+		{% if app.user %}
+			<div class="alreadyLogged">
+				<div class="avatarImage" style="background-image: url('{{ asset('images/default-user-image.png') }}')"></div>
+				<div class="wrapper">
+					<div class="caption">You are already logged in as</div>
+					<div>
+						<div class="username">{{ app.user.username }}</div>
+						<div class="email">{{ app.user.email }}</div>
+					</div>
+					<div class="buttons">
+						<button class="cancelBtn" data-action="click->app#changeRoute" data-app-route-param="{{ path('home') }}">
+							Cancel
+						</button>
+						<button class="logoutBtn" data-action="click->app#changeRoute" data-app-route-param="{{ path('logout') }}">
+							Logout
+						</button>
+					</div>
+
+				</div>
+			</div>
+		{% else %}
+			<form method="post" class="loginForm">
+				<div class="formTitle">Sign In</div>
+				<input type="text" value="{{ last_username }}" name="username" id="inputUsername" autocomplete="username" placeholder="Username" required autofocus>
+
+				<input type="password" name="password" id="inputPassword" placeholder="Password" autocomplete="current-password" required>
+
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+				<a class="forgotPassword" href="{{ path('app_forgot_password_request') }}">Forgot password ?</a>
+
+				<div class="formFooter">
+					<div class="helpText">
+						No account ?
+						<span class="material-icons">arrow_right</span>
+					</div>
+
+					<button class="btn" type="button" data-action="click->app#changeRoute" data-app-route-param="{{ path('register') }}">
+						Sign Up
+					</button>
+
+					<button type="submit" class="btn loginBtn">
+						Log In
+					</button>
+				</div>
+			</form>
+		{% endif %}
+
+
+	</div>
+{% endblock %}
