@@ -1,0 +1,15 @@
+<div class="commentCard">
+	<div class="user">
+		{% set user = comment.author %}
+		{% include 'app/user/avatar.html.twig' %}
+		<span class="username">
+			{{ user.username }}
+		</span>
+	</div>
+	<p class="commentContent">
+		{{ comment.content }}
+	</p>
+	<span class="commentCreated">
+		Écris le {{ comment.createdAt }}
+	</span>
+</div>

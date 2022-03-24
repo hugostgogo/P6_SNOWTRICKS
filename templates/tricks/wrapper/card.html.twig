@@ -1,0 +1,20 @@
+<div class="trickCard" {{ stimulus_action('app', 'changeRoute', 'click') }} data-app-route-param='{{ path('app_tricks_show', {"id": trick.id}) }}'>
+	<div style="background-image: url('{{ asset(trick.cover) }}')" class="trickCover">
+		<div class="actionsButtons">
+			<button class="btn actionBtn" onclick="changeRoute('{{ path('app_tricks_show', {"id": trick.id }) }}')">
+				<span class="material-icons">visibility</span>
+			</button>
+
+			<button class="btn actionBtn" onclick="changeRoute('{{ path('app_tricks_edit', {"id": trick.id}) }}')">
+				<span class="material-icons">edit</span>
+			</button>
+
+			<button class="btn actionBtn" onclick="changeRoute('{{ path('app_tricks_delete', {"id": trick.id}, "post") }}')">
+				<span class="material-icons">delete</span>
+			</button>
+		</div>
+	</div>
+	<div class="trickCardDetails">
+		<div>{{ trick.name }}</div>
+	</div>
+</div>

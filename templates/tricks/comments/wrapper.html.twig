@@ -1,0 +1,12 @@
+<div class="commentsWrapper">
+	{% for comment in trick.comments %}
+		{% include "tricks/comments/card.html.twig" %}
+	{% else %}
+		<div>
+			Aucun commentaire !
+		</div>
+	{% endfor %}
+    <button class="loadMoreButton">
+        Load more
+    </button>
+</div>

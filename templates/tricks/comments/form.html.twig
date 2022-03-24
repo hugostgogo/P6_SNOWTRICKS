@@ -1,0 +1,5 @@
+{{ form_start(commentForm) }}
+
+    {{ form_widget(commentForm.content, {'attr': {'class': 'commentTextarea'}}) }}
+    <button class="btn commentButton">{{ button_label|default('Comment') }}</button>
+{{ form_end(commentForm) }}

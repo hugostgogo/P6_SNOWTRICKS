@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  All tricks
+{% endblock %}
+
+{% block body %}
+    {% set home = false %}
+    {% include "tricks/wrapper/tricksWrapper.html.twig" %}
+{% endblock %}

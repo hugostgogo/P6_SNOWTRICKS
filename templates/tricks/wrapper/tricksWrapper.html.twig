@@ -1,0 +1,13 @@
+<div class="{{ home ? 'wrapperHome' : 'wrapperPage' }}" {{stimulus_controller('tricks')}}>
+	<div class="tricksWrapper" id="tricksWrapper" {{ stimulus_target('tricks', 'wrapper') }}>
+		{% for trick in tricks %}
+			{% include 'tricks/wrapper/card.html.twig' %}
+		{% else %}
+			Rien !
+		{% endfor %}
+	</div>
+	<div class="wrapperFooter">
+		{% include 'tricks/wrapper/add.html.twig' %}
+		{% include 'tricks/wrapper/loadMoreButton.html.twig' %}
+	</div>
+</div>

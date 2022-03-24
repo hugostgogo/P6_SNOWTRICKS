@@ -1,0 +1,8 @@
+<button id="loadMoreButton" class="btn" {{ stimulus_action('tricks', 'loadPage', 'click') }} {{ stimulus_target('tricks', 'button') }}>
+	<span {{ stimulus_target('tricks', 'text') }}>
+		Load more
+	</span>
+	<span class="material-icons" {{ stimulus_target('tricks', 'icon') }}>
+		sync
+	</span>
+</button>

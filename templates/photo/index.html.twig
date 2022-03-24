@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Photo index{% endblock %}
+
+{% block body %}
+    <h1>Photo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Path</th>
+                <th>Description</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for photo in photos %}
+            <tr>
+                <td>{{ photo.id }}</td>
+                <td>
+                    <div style="background-image: url('{{ asset('uploads/photos/' ~ photo.path) }}'); width: 100px; aspect-ratio: 1; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                    </div>
+                </td>
+                <td>{{ photo.description }}</td>
+                <td>{{ photo.createdAt ? photo.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_photo_show', {'id': photo.id}) }}">show</a>
+                    <a href="{{ path('app_photo_edit', {'id': photo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_photo_new') }}">Create new</a>
+{% endblock %}
